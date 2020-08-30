@@ -11,8 +11,6 @@ union U
     S s ;
 };
 
-
-
 int main()
 {
     U u = {} ;
