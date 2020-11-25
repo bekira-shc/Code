@@ -1,21 +1,53 @@
 #include <iostream>
+#include <vector>
+#include <string>
+#include <io.h>
+#include <fstream>
 
-struct S
+ void getFiles( std::string path, std::vector<std::string>& files )  
+ {  
+
+    long   hFile   =   0;    
+    struct _finddata_t fileinfo;  
+    std::string p;  
+    if((hFile = _findfirst(p.assign(path).append("\\*").c_str(),&fileinfo)) !=  -1)  
+    {  
+        do  
+        {   
+            if((fileinfo.attrib &  _A_SUBDIR))  
+            {  
+                if(strcmp(fileinfo.name,".") != 0  &&  strcmp(fileinfo.name,"..") != 0)
+                files.push_back(fileinfo.name);
+                //getFiles( p.assign(path).append("\\").append(fileinfo.name), files );  
+            }  
+            else  
+            {  
+                continue; 
+            }  
+        }
+        while(_findnext(hFile, &fileinfo)  == 0);  
+        _findclose(hFile);  
+     }  
+} 
+
+
+void owf()
 {
-    int X ;
-    int Y ;
-};
+    std::vector<std::string> tem;
+    std::string path = "D:\\Code\\Code\\pytraining";
 
-union U
-{
-    S s ;
-};
+    getFiles(path,tem);
 
-int main()
-{
-    U u = {} ;
-    u.s.X = 10 ;
-    u.s.Y = 20 ;
-
-    std::cout << u.s.X << std::endl ;
+    for(int i = 0; i < tem.size(); i++)
+    {
+        std::cout << tem[i] << std::endl;
+    }
 }
+
+int main ()
+{
+    owf();
+
+    return 0;
+}
+

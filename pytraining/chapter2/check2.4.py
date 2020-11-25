@@ -12,3 +12,4 @@ print(f'こんにちは、{name}さん')
 
 get = data[1][4]
 print(get)
+print(txt)

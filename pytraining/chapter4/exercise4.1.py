@@ -1,4 +1,4 @@
-i = 75
+i = int(input())  ##　＝＝ static_cast<int> in C++
 
 if i >= 90:
     print('優')
