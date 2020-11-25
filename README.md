@@ -1,2 +1,2 @@
 # Code
-Training in new_PC
+Test in new_PC
