@@ -29,5 +29,4 @@ int main()
     };
 
     show_product(&pen) ;
-
 }
