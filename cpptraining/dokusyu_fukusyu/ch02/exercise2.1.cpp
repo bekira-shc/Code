@@ -28,6 +28,6 @@ int main()
        200 ,
     };
 
-    show_product(pen) ;
+    show_product(&pen) ;
 
 }
